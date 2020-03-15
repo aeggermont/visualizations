@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="app.component.css">
+  <!-- 
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+    
+  </head>
+<body bgcolor="#f1f0f4">
+
+  <!-- 
+<body bgcolor="#f2eff9">
+  -->
+
+  <table>
+    <caption class="typography-header-page ">Multivariable Analysis for each Country's GDP, Population, and Awarded Medals in the <br> Olympic Games in the <span id="seasson"></span> of <span id="demo"></span></caption>
+    <tr>
+      <td width="100%">
+        <div id="main_chart">
+          <div class="tip" style="width:250px;height:105px;display:none;">
+            <div class="tip-content">
+              <div class="row"><span class="name"> </span></div>
+              <br>
+              <div class="row typography-country-list">Num of Athletes <span class="abv data">10%</span></div>
+              <div class="row typography-country-list">Medal Count  <span class="ibu data">20</span></div>
+              <div class="row typography-country-list">GDP<span class="srm data">20</span></div>
+              <div class="row typography-country-list">Population <span class="rating data">20</span></div>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td align="center"><div class="typography-graph-axis-label">Left click and drag on the vertical axes to filter individual country lines</div> </td>
+    </tr>
+  </table>
+  
+  <table>
+    <tr><td width="100%"><div id="info-labels"></div></td></tr>
+  </table>
+
+  <table>
+    <tr>
+      <td><div class="typography-instruction-labels">Season </div></td> <td><div class="typography-instruction-labels">1980 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2016 </div></td>
+    </tr>
+    <tr valign="middle">
+      <td  height="50" width="20%">
+        <input checked type="radio" id="winter" name="monster">
+        <label for="kraken">Winter</label><br/>
+    
+        <input type="radio" id="summer" name="monster">
+        <label for="sasquatch">Summer</label><br/>
+  
+      </td>
+
+      <td width="75%">
+        <!-- SLIDER CONTROL FOR YEARS-->
+        <div class="slidecontainer">
+          <input type="range" min="0" max="9" value="0" class="slider" id="myRange">
+          
+        </div>  
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <table>
+    <tr>
+      <td width="100%">
+        <div class="search">
+          <input type="text" placeholder="Search for a country name">
+          <button style="display:none;" class="search-clear">X</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <br><br>
+  <table>
+    <tr>
+      <td>
+        <!-- LIST OF COUNTRIES-->
+        <div class="beer-list">
+          <div class="beer header">
+            <div class="name">Country Name (<span id="count"></span> / <span id="total"></span>)</div>
+            <div class="stat">GDP      </div>
+            <div class="stat">Medal Count </div>
+            <div class="stat">Gold Medals </div>
+            <div class="stat">Silver Medals </div>
+            <div class="stat">Bronze Medals </div>
+            <div class="stat">Num of Athletes </div>
+            <div class="stat">Population </div>
+          </div>  
+          <div id="beer-list">  </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="srm2rgb.js"></script>
+<script src="app.component.js"></script>
+
+<script>
+
+</script>
+
+</body>
+</html>

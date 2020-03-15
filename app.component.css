@@ -1,0 +1,402 @@
+/**
+  Typography Hierarchy
+
+  Title:
+    Multivariable Analysis for each Country's
+    font-size: 20px;
+    font-family: Avenir;
+    text-align: center;
+    font-weight: bold;
+
+  Instruction labels:
+    Select a Seasson...
+    font-size: 12px;
+    font-family: Avenir;
+    text-align: center;
+    font-weight: medium;
+
+
+
+*/
+
+
+/**
+ * Seasson Button styles
+ */
+ .styled {
+  border: 0;
+  line-height: 2.5;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-family: Avenir;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 10px;
+  background-color: rgba(220, 0, 0, 1);
+  background-image: linear-gradient(to top left,
+                                    rgba(0, 0, 0, .2),
+                                    rgba(0, 0, 0, .2) 30%,
+                                    rgba(0, 0, 0, 0));
+  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+              inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+  background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.typography-header-page {
+  font-size: 20px;
+  font-family: Avenir;
+  text-align: center;
+  font-weight: bold;
+}
+
+.typography-instruction-labels {
+  font-size: 14px;
+  font-family: Avenir;
+  font-weight: medium;
+}
+
+/**
+ * Table Styles
+ */
+
+ table {
+   width: 1100px;
+ }
+
+ .d3column {
+  width: 900px;
+ }
+
+ .searchSeason {
+  width: 200px;
+ }
+
+ .searchCountry {
+  width: 600px;
+ }
+
+
+/**
+ * Slider Styles
+ */
+.slidecontainer {
+    width: 600px;
+  }
+  
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+/**
+ * Slider toolpits
+ */
+
+ .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+/**
+ * D3 Visualization Styles
+ */
+
+ body {
+  font-size: 12px;
+  font-family: Avenir;
+  width: 1000px;
+  margin: 1em auto 0.3em auto;
+}
+
+
+.typography-graph-axis-label {
+  font-size: 12px;
+  font-family: Avenir;
+  align-content: center;
+}
+
+
+typography-country-list {
+  font-size: 12px;
+  font-family: Avenir;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+#chart {
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.tip {
+  position: absolute;
+  pointer-events: none;
+  background-color: white;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0,0,0,.2);
+  border: 1px solid rgba(0,0,0,.3);
+}
+
+.tip-content {
+  position: absolute;
+  padding: 6px;
+  font-family: Avenir;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.tip .name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.tip span.data {
+  float: right;
+  clear: right;
+}
+
+#legend {
+  float: left;
+  margin-bottom: 30px;
+  margin-left: 10px;
+}
+
+#legend text {
+  fill: #555;
+}
+
+#legend .em {
+  font-weight: bold;
+  fill: #111;
+}
+
+#legend rect {
+  opacity: 0.8;
+}
+
+.chromeframe {
+  margin: 3em auto 0 auto;
+  text-align: center;
+  color: #888;
+}
+
+.chromeframe a {
+  text-decoration: none;
+  color: #77f;
+}
+
+.author {
+  font-size: 10px;
+  color: #aaa;
+  margin-top: -20px;
+}
+
+path {
+  fill: none;
+  stroke-width: 1px;
+  stroke-opacity: .5;
+}
+
+.linecolor path {
+  stroke: black;
+  stroke-opacity: 1.05;
+}
+
+.goldlinecolor path {
+  stroke: red;
+  stroke-opacity: 1.05;
+}
+
+.foreground path.fade {
+  display: none;
+}
+
+.foreground path.hover,
+.foreground path.active {
+  stroke-width: 3px;
+  stroke-opacity: 1;
+  stroke: green;
+}
+
+.brush .extent {
+  fill-opacity: .3;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.axis line, .axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  text-shadow: 0 1px 0 #fff;
+}
+
+
+.beer-list {
+  width: 100%;
+  left: 5%;
+  max-height: 50%;
+  height: 50%;
+  top: 50%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.beer-list .beer {
+  float: left;
+  line-height: 1.5em;
+  width: 100%;
+  margin-bottom: 1px;
+}
+
+.beer.hover {
+  background: #dde;
+}
+
+.beer-list .header {
+  font-weight: bold;
+}
+
+.beer-list .beer div {
+  float: left;
+  text-align: right;
+  display: inline-block;
+  width: 10%;
+}
+
+.beer-list .beer div.name {
+  text-align: left;
+  width: 15%;
+}
+
+.search {
+  /*
+  float: left; */
+  position: relative;
+  margin-top: 10px;
+  padding: 0;
+  width: 30em;
+}
+
+.search input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 26px;
+  font: 12px sans-serif;
+  padding: 0 28px 0 8px;
+  margin: 0;
+  border: solid 1px #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
+}
+
+.search input::-ms-clear {
+  display: none;
+}
+
+.search .search-clear {
+  /*position: absolute;
+  right: 10px;
+  top: 5px; */
+  background: #bbb;
+  border: none;
+  border-radius: 9px;
+  color: #fff;
+  font: 10px sans-serif;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.search .search-clear:hover {
+  background: #aaa;
+}
+
