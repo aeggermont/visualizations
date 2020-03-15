@@ -125,8 +125,8 @@ var legendRight = legend.append("text")
           
   var dataFileIn = "data/olympic-data-" + selectedYear + "-" + selectedSeason + ".csv";
   
-  console.log(">>>> FILE IN <<<<");
-  console.log(dataFileIn);
+  ////console.log(">>>> FILE IN <<<<");
+  ////console.log(dataFileIn);
 
   d3.csv(dataFileIn, function (countries) {
     var x = d3.scale.ordinal().rangePoints([0, width], 0.1),
@@ -150,8 +150,8 @@ function loadVisualization(selectedYear, selectedSeason){
   //var dataFileIn = "data/olympic-data-" + selectedYear + "-Winter.csv";
   var dataFileIn = "data/olympic-data-" + selectedYear + "-" + selectedSeason + ".csv";
   
-  console.log(">>>> FILE IN <<<<");
-  console.log(dataFileIn);
+  ////console.log(">>>> FILE IN <<<<");
+  ////console.log(dataFileIn);
 
   try {
     var element = document.getElementById("d3chart");
@@ -178,16 +178,28 @@ function loadVisualization(selectedYear, selectedSeason){
         line = d3.svg.line().interpolate("cardinal");
 
     // Extract the list of dimensions and create a scale for each.
+    console.log(">>> dimensions <<<");
+    console.log(dimensions);
+
     x.domain(dimensions);
+
     dimensions.forEach(function (d) {
       y[d] = (y[d] || d3.scale.linear())
-        .domain(d3.extent(countries, function (p) { return +p[d]; }))
+        .domain(d3.extent(countries, function (p) { 
+      
+          if ( d == "Population") {
+            //console.log(p);
+            //console.log(d);
+            console.log(+p[d]);
+          }
+          return +p[d]; 
+        }))
         .range([height, 0]);
     });
 
     
     // Create and render all unhighlithed country lines
-    console.log(lineColor)
+    ////console.log(lineColor)
     
     // Create and render all of the faded lines
     svgContainer.append("g")
@@ -204,13 +216,13 @@ function loadVisualization(selectedYear, selectedSeason){
       .data(countries)      
       .enter().append("path")
       .each(function (d) {
-        console.log('*** rendering line:');
-        console.log(d);
+        ////console.log('*** rendering line:');
+        //console.log(d);
         lineColor = "goldlinecolor";
         d.line = d3.select(this);
         //d.line.attr("class", this.lineColor).enter()
-        console.log(">>> unhighlithed line: <<<");
-        console.log( d);
+        //console.log(">>> unhighlithed line: <<<");
+        //console.log( d);
       })
       .attr("d", path)
       .attr("class", lineColor); */
@@ -227,8 +239,8 @@ function loadVisualization(selectedYear, selectedSeason){
       .attr("stroke", srmColor)
       .each(function (d) { 
           d.line = d3.select(this);
-          console.log(">>> foreground line :");
-          console.log(d); 
+          //console.log(">>> foreground line :");
+          //console.log(d); 
       })
       .attr("d", path)
       .on("mouseover", mouseover)
@@ -268,9 +280,9 @@ function loadVisualization(selectedYear, selectedSeason){
 
     // apply the correct color to use for a beer based on its SRM
     function srmColor(d) {
-      console.log(">>> srmColor() <<<<");
-      console.log(d['Gold']);
-      console.log(d['Silver']);
+      //console.log(">>> srmColor() <<<<");
+      //console.log(d['Gold']);
+      //console.log(d['Silver']);
       //return "blue";
       return window.srm2rgb(d['Continent']);
     }
@@ -384,49 +396,68 @@ function loadVisualization(selectedYear, selectedSeason){
      * Legends in mouse over events 
      * @param {*} d 
      */
-    function mouseover(d) {
-      console.log(">>> mouseover <<<");
-      console.log(d);
-      console.log(">>>>>>>>>>>>>>>>>");
+    function mouseover(d) { 
+      
+      console.log(">>> mouse over <<<");
       
       if (d.mouseover) { return; }
       mouseout();
       d.mouseover = true;
+
+      console.log(">>> lines <<<");
+
       lines.filter(function (c) { return c === d; })
         .classed("active", true)
         .each(function () {
+          //console.log(this);
           this.parentNode.appendChild(this);
         });
-
+      
       var dx = d3.mouse(svgContainer.node())[0],
           dy = d3.mouse(svgContainer.node())[1];
 
-    
+      
       // Render tooltip in each line
       tip.style("display", null)
           .style("top", (dy + (margin.top + 80)  - (+tip.style("height").replace("px", "")) - 5) + "px")
           .style("left", (dx + (margin.left + 250) - (+tip.style("width").replace("px", "")) - 5) + "px");
 
+      tip.select("#athleteCount").text(d.AthletesCount);
+      tip.select("#medalCount").text(d.MedalCount);
+      tip.select("#totalGDP").text( function () {
+        if (d.GDP === '0') {
+          return "Not available"
+        } else {
+          return d.GDP;
+        }
+      });
 
-      //tip.selectAll(".abv").text(percentFormat(d.AthletesCount));
-
-      tip.selectAll(".abv").text(d.AthletesCount);
-      tip.selectAll(".ibu").text(d.MedalCount);
-      tip.selectAll(".ibu").text(d.Gold);
-      tip.selectAll(".ibu").text(d.Silver);
-      tip.selectAll(".ibu").text(d.Bronze);
-      tip.selectAll(".rating").text(d.Population);
+      //tip.selectAll("#athleteCount").text(d.AthletesCount);
+      //tip.selectAll(".ibu").text(d.MedalCount);
+      //tip.selectAll(".ibu").text(d.Gold);
+      //tip.selectAll(".ibu").text(d.Silver);
+      //tip.selectAll(".ibu").text(d.Bronze);
+      //tip.selectAll(".rating").text(d.Population);
       var name = d.name.length > 40 ? d.name.substr(0, 40) + "..." : d.name;
       tip.selectAll(".name").text(name);
-      tip.selectAll(".srm").text(d.GDP);
-
+      
+      //tip.selectAll(".srm").text(d.GDP);
+      
     }
+
+
+    function testGDP(gpd) {
+      console.log("testing GDP");
+      console.log(gdp);
+    }  
 
     function mouseout() {
       tip.style("display", "none");
       lines.filter(".active")
         .classed("active", false)
-        .each(function (d) { d.mouseover = false; });
+        .each(function (d) { 
+          d.mouseover = false; 
+        });
     }
   });
 }
@@ -467,12 +498,12 @@ seasson.innerHTML = selectedSeason;
 slider.oninput = function() {
 
   //selectedSeason = "Winter";
-  console.log("> Prevous year: " + prevYear);
-  console.log("> selected year: " + selectedYear );
-  console.log("> selected season: " + selectedSeason);  
+  //console.log("> Prevous year: " + prevYear);
+  //console.log("> selected year: " + selectedYear );
+  //console.log("> selected season: " + selectedSeason);  
 
   // if ( (parseInt(prevYear) == 1994) && ( parseInt(prevYear) > parseInt(selectedYear)) ) {
-  //  console.log(" pprevious year was 1994!");
+  //  //console.log(" pprevious year was 1994!");
   // }
 
   prevYear = selectedYear;
@@ -480,7 +511,7 @@ slider.oninput = function() {
   if ( ( parseInt(selectedYear) >= 1992) && ( selectedSeason == "Winter")) {  
     selectedYear = baseYear + ( (yearIntervals * parseInt(this.value)) - 2);   
   } else if ( (parseInt(prevYear) == 1994) && ( parseInt(prevYear) > parseInt(selectedYear)  )) {
-    console.log(" pprevious year was 1994!");
+    //console.log(" pprevious year was 1994!");
   } else {
     selectedYear = baseYear + (yearIntervals * parseInt(this.value));
   }
@@ -491,11 +522,11 @@ slider.oninput = function() {
 
 
 $(document).ready(function() {
-  console.log(" Document Ready!!!");
+  //console.log(" Document Ready!!!");
   loadVisualization(1980, "Winter");
 
   $("#summer").bind("click", function() { 
-    console.log(">> summer selected!");
+    //console.log(">> summer selected!");
     selectedSeason = "Summer";
     seasson.innerHTML = selectedSeason;
     loadVisualization(selectedYear, selectedSeason);
@@ -506,7 +537,7 @@ $(document).ready(function() {
   }); 
 
   $("#winter").bind("click", function() { 
-    console.log(">> winter selected!"); 
+    //console.log(">> winter selected!"); 
     selectedSeason = "Winter";
     seasson.innerHTML = selectedSeason;
     loadVisualization(selectedYear, selectedSeason);
