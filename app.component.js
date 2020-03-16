@@ -280,10 +280,6 @@ function loadVisualization(selectedYear, selectedSeason){
 
     // apply the correct color to use for a beer based on its SRM
     function srmColor(d) {
-      //console.log(">>> srmColor() <<<<");
-      //console.log(d['Gold']);
-      //console.log(d['Silver']);
-      //return "blue";
       return window.srm2rgb(d['Continent']);
     }
 
@@ -309,7 +305,7 @@ function loadVisualization(selectedYear, selectedSeason){
       hovering.forEach(hoveroutcell);
     }
 
-    // display the beer list
+    // display the country list
     function updateBeerList(activelist) {
       d3.select("#count").text(activelist.length);
       d3.select("#total").text(countries.length);
@@ -424,24 +420,25 @@ function loadVisualization(selectedYear, selectedSeason){
 
       tip.select("#athleteCount").text(d.AthletesCount);
       tip.select("#medalCount").text(d.MedalCount);
+      tip.select("#goldMedalsCount").text(d.Gold);
+      tip.select("#silverMedalCount").text(d.Silver);
+      tip.select("#bronzeMedalCount").text(d.Bronze);
+      
+      tip.select("#totalPopulation").text( function () {
+        return d.Population.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      });
+      
+  
       tip.select("#totalGDP").text( function () {
         if (d.GDP === '0') {
           return "Not available"
         } else {
-          return d.GDP;
+          return d.GDP.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
       });
 
-      //tip.selectAll("#athleteCount").text(d.AthletesCount);
-      //tip.selectAll(".ibu").text(d.MedalCount);
-      //tip.selectAll(".ibu").text(d.Gold);
-      //tip.selectAll(".ibu").text(d.Silver);
-      //tip.selectAll(".ibu").text(d.Bronze);
-      //tip.selectAll(".rating").text(d.Population);
       var name = d.name.length > 40 ? d.name.substr(0, 40) + "..." : d.name;
       tip.selectAll(".name").text(name);
-      
-      //tip.selectAll(".srm").text(d.GDP);
       
     }
 
@@ -471,9 +468,7 @@ d3.selection.prototype.moveToFront = function () {
 
 
 
-/*  --------  INTERACTIVE NAVIGATION -------- */.0000
-
-
+/*  --------  INTERACTIVE NAVIGATION -------- */
 var baseYear  = parseInt(1980);
 var yearIntervals = 4;
 var selectedYear = 1980;        // Default Year
