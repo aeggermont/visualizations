@@ -330,7 +330,7 @@ def parce_data(search_year, search_seasson):
               e = sys.exc_info()[0]
 
               print ("Error: %s" % e)
-              print gdp
+              print (gdp)
 
               gdpInFloat = 0
               pass
@@ -372,32 +372,32 @@ def parce_data(search_year, search_seasson):
   writer.writeheader()
 
   for country_name, stats in dataCollection.items():
-    print country_name
-    print dataCollection[country_name]
-    print countryByContinent[country_name]
-    print ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+    print (country_name)
+    print (dataCollection[country_name])
+    print (countryByContinent[country_name])
+    print (">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 
     try:
       writer.writerow({'name'     : country_name,
                        'Continent'   : countryByContinent[country_name],
                        'GDP'         : dataCollection[country_name]['gdp'],
-                       'Population'  : dataCollection[country_name]['population'],
-                       'AthletesCount' : dataCollection[country_name]['num_athletes'],
                        'MedalCount'  : dataCollection[country_name]['medal_count'],
                        'Gold'        : dataCollection[country_name]['gold'],
                        'Silver'      : dataCollection[country_name]['silver'],
-                       'Bronze'      : dataCollection[country_name]['bronze']
+                       'Bronze'      : dataCollection[country_name]['bronze'],
+                       'AthletesCount' : dataCollection[country_name]['num_athletes'],
+                       'Population'  : dataCollection[country_name]['population']
                        })
     except:
       print (">>> MISSING COUNTRY <<<<")
-      print country_name
+      print (country_name)
       pass
 
 def main():
-  print "**** Data Generator ****"
-  parce_data("2016", "Summer")
+  print ("**** Data Generator ****")
+  parce_data("1980", "Winter")
 
-  print countryByContinent['Canada']
+  print (countryByContinent['Canada'])
   #print dataCollection
   #print athletesByCountry['Lieuwe de Boer']
 
