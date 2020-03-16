@@ -178,8 +178,8 @@ function loadVisualization(selectedYear, selectedSeason){
         line = d3.svg.line().interpolate("cardinal");
 
     // Extract the list of dimensions and create a scale for each.
-    console.log(">>> dimensions <<<");
-    console.log(dimensions);
+    //console.log(">>> dimensions <<<");
+    //console.log(dimensions);
 
     x.domain(dimensions);
 
@@ -190,7 +190,7 @@ function loadVisualization(selectedYear, selectedSeason){
           if ( d == "Population") {
             //console.log(p);
             //console.log(d);
-            console.log(+p[d]);
+            //console.log(+p[d]);
           }
           return +p[d]; 
         }))
@@ -209,28 +209,6 @@ function loadVisualization(selectedYear, selectedSeason){
       .enter().append("path")
         .attr("d", path);
 
-    /*
-    svgContainer.append("g")
-      .attr("class", lineColor) 
-      .selectAll("path")
-      .data(countries)      
-      .enter().append("path")
-      .each(function (d) {
-        ////console.log('*** rendering line:');
-        //console.log(d);
-        lineColor = "goldlinecolor";
-        d.line = d3.select(this);
-        //d.line.attr("class", this.lineColor).enter()
-        //console.log(">>> unhighlithed line: <<<");
-        //console.log( d);
-      })
-      .attr("d", path)
-      .attr("class", lineColor); */
-    
-
-    // Create and render all of the 
-    // foreground lines that can be 
-    // selected
     var lines = svgContainer.append("g")
       .attr("class", "foreground")
       .selectAll("path")
@@ -397,7 +375,7 @@ function loadVisualization(selectedYear, selectedSeason){
       mouseout();
       d.mouseover = true;
 
-      console.log(">>> lines <<<");
+      // console.log(">>> lines <<<");
 
       lines.filter(function (c) { return c === d; })
         .classed("active", true)
@@ -441,8 +419,8 @@ function loadVisualization(selectedYear, selectedSeason){
 
 
     function testGDP(gpd) {
-      console.log("testing GDP");
-      console.log(gdp);
+      //console.log("testing GDP");
+      //console.log(gdp);
     }  
 
     function mouseout() {
