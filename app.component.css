@@ -69,7 +69,7 @@
  */
 
  table {
-   width: 1100px;
+   width: 100%;
  }
 
  .d3column {
@@ -89,7 +89,7 @@
  * Slider Styles
  */
 .slidecontainer {
-    width: 600px;
+    width: 300px;
   }
   
 .slider {
@@ -187,6 +187,18 @@
   font-size: 12px;
   font-family: Avenir;
   align-content: center;
+}
+
+.typography-interactive-label {
+  font-size: 12px;
+  font-family: Avenir;
+  font-weight: bold;
+}
+
+.typography-interactive-features {
+  font-size: 12px;
+  font-family: Avenir;
+  font-weight: medium;
 }
 
 
@@ -361,7 +373,6 @@ path {
   position: relative;
   margin-top: 10px;
   padding: 0;
-  width: 30em;
 }
 
 .search input {
