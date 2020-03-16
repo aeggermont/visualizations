@@ -24,25 +24,38 @@
   <table>
     <caption class="typography-header-page ">Multivariable Analysis for each Country's GDP, Population, and Awarded Medals in the <br> Olympic Games in the <span id="seasson"></span> of <span id="demo"></span></caption>
     <tr>
-      <td width="100%">
+      <td width="80%">
         <div id="main_chart">
-          <div class="tip" style="width:250px;height:105px;display:none;">
+          <div class="tip" style="width:250px;height:155px;display:none;">
             <div class="tip-content">
               <div class="row"><span class="name"> </span></div>
               <br>
-              <div class="row typography-country-list">Num of Athletes <span class="abv data">10%</span></div>
-              <div class="row typography-country-list">Medal Count  <span class="ibu data">20</span></div>
-              <div class="row typography-country-list">GDP<span class="srm data">20</span></div>
-              <div class="row typography-country-list">Population <span class="rating data">20</span></div>
+              <div class="row typography-country-list">Num of Athletes <span id="athleteCount" class="abv data">10%</span></div>
+              <div class="row typography-country-list">Medal Count  <span id="medalCount" class="ibu data">20</span></div>
+              <div class="row typography-country-list">Gold Medals  <span id="goldMedalsCount" class="ibu data">20</span></div>
+              <div class="row typography-country-list">Silver Medals  <span id="silverMedalCount" class="ibu data">20</span></div>
+              <div class="row typography-country-list">Bronze Medals  <span id="bronzeMedalCount" class="ibu data">20</span></div>
+              <br>
+              <div class="row typography-country-list">GDP <span id="totalGDP" class="srm data">20</span></div>
+              <div class="row typography-country-list">Population <span  id="totalPopulation" class="rating data">20</span></div>
             </div>
           </div>
         </div>
       </td>
-    </tr>
-    <tr>
-      <td align="center"><div class="typography-graph-axis-label">Left click and drag on the vertical axes to filter individual country lines</div> </td>
+      <td width="20%" >
+        <div class="typography-instruction-labels" > Continents </div>
+        <br>
+        <img src="Olympic-Ring.png" alt="Smiley face" height="71" width="120">
+      </td>
     </tr>
   </table>
+  
+  <table>
+    <tr>
+      <td width="80%" ><div class="typography-graph-axis-label">Left click and drag on the vertical axes to filter individual country lines</div> </td>
+    </tr>
+  </table>
+   
   
   <table>
     <tr><td width="100%"><div id="info-labels"></div></td></tr>
