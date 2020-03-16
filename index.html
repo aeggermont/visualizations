@@ -24,6 +24,11 @@
   <table>
     <caption class="typography-header-page ">Multivariable Analysis for each Country's GDP, Population, and Awarded Medals in the <br> Olympic Games in the <span id="seasson"></span> of <span id="demo"></span></caption>
     <tr>
+      <td width="20%" >
+        <div class="typography-instruction-labels" >Line Color Legends</div>
+        <br>
+        <img src="Olympic-Ring.png" alt="Smiley face" height="71" width="120">
+      </td>
       <td width="80%">
         <div id="main_chart">
           <div class="tip" style="width:250px;height:155px;display:none;">
@@ -42,31 +47,68 @@
           </div>
         </div>
       </td>
-      <td width="20%" >
-        <div class="typography-instruction-labels" > Continents </div>
-        <br>
-        <img src="Olympic-Ring.png" alt="Smiley face" height="71" width="120">
-      </td>
     </tr>
-  </table>
-  
-  <table>
+    
     <tr>
-      <td width="80%" ><div class="typography-graph-axis-label">Left click and drag on the vertical axes to filter individual country lines</div> </td>
+      <td width="20%"></td>
+      <td width="80%" align="center"><div class="typography-graph-axis-label">Left click and drag on the vertical axes to filter individual country lines</div> </td>
     </tr>
   </table>
-   
   
-  <table>
-    <tr><td width="100%"><div id="info-labels"></div></td></tr>
+  <br>
+
+  <table >
+      <tr valign="middle">
+        <td width="10%">  </td>
+        <td width="10%" class="typography-interactive-label">Seasson</td>
+        <td width="30%" class="typography-interactive-label">Selected Year:  <span id="eventYear"></span></td>
+        <td width="20%" class="typography-interactive-label">Search</td>
+      </tr>
+      <tr valign="middle">
+        <td width="10%">  </td>
+        <td width="10%">  
+            <input checked type="radio" id="winter" name="monster">
+            <label for="kraken">Winter</label><br/>
+        
+            <input type="radio" id="summer" name="monster">
+            <label for="sasquatch">Summer</label><br/>
+        </td>
+        <td width="30%">
+          <div class="slidecontainer">
+            <input type="range" min="0" max="9" value="0" class="slider" id="myRange">       
+          </div>    
+        </td>
+        <td width="20%">
+          <div class="search">
+              <input type="text" placeholder="Search for a country name">
+              <button style="display:none;" class="search-clear">X</button>
+          </div>
+        </td>
+      </tr>
   </table>
 
+
+
+  <!-- 
   <table>
     <tr>
-      <td><div class="typography-instruction-labels">Season </div></td> <td><div class="typography-instruction-labels">1980 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2016 </div></td>
+      <td width="80%" align="center"><div class="typography-graph-axis-label">Left click and drag on the vertical axes to filter individual country lines</div> </td>
     </tr>
+  </table>
+   -->
+  
+   <!-- 
+
+  <table>
     <tr valign="middle">
-      <td  height="50" width="20%">
+      <td width="10px"><div class="typography-instruction-labels">Season </div></td>
+      <td width="20px"> 1980 </td> 
+      <td width="30px"> Country Search</td>
+    </tr>
+  </table>
+    
+    <tr valign="middle">
+      <td  height="50">
         <input checked type="radio" id="winter" name="monster">
         <label for="kraken">Winter</label><br/>
     
@@ -75,27 +117,21 @@
   
       </td>
 
-      <td width="75%">
-        <!-- SLIDER CONTROL FOR YEARS-->
+      <td >
         <div class="slidecontainer">
           <input type="range" min="0" max="9" value="0" class="slider" id="myRange">
           
         </div>  
       </td>
-    </tr>
-  </table>
 
-  <hr>
-  <table>
-    <tr>
-      <td width="100%">
-        <div class="search">
-          <input type="text" placeholder="Search for a country name">
-          <button style="display:none;" class="search-clear">X</button>
-        </div>
+      <td>
+          <div class="search">
+              <input type="text" placeholder="Search for a country name">
+              <button style="display:none;" class="search-clear">X</button>
+            </div>
       </td>
     </tr>
-  </table>
+-->
   <br><br>
   <table>
     <tr>
