@@ -45,7 +45,7 @@
 
 
   window.srm2rgb = function (continent) {
-    console.log('**>>>> Continent: ' + continent );
+    // console.log('**>>>> Continent: ' + continent );
     //var rounded = Math.abs(Math.round(srm));
     //console.log("SRM Rounded: ");
     //console.log(rounded);
