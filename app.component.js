@@ -392,10 +392,7 @@ function loadVisualization(selectedYear, selectedSeason){
      * Legends in mouse over events 
      * @param {*} d 
      */
-    function mouseover(d) { 
-      
-      console.log(">>> mouse over <<<");
-      
+    function mouseover(d) {       
       if (d.mouseover) { return; }
       mouseout();
       d.mouseover = true;
@@ -478,28 +475,16 @@ var dataInputFile = "data/olimpics_data_" + selectedYear + ".csv";
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 var seasson = document.getElementById("seasson");
+var sliderLeyend = document.getElementById("eventYear");
 
 var prevYear;
 
 //var base_year = 1980
 output.innerHTML = baseYear;
 seasson.innerHTML = selectedSeason;
-
-
-
-//  } else if ( (selectedYear == 1990) &&  (selectedSeason == "Winter") ) {
-//  selectedYear = baseYear + ( (yearIntervals * parseInt(this.value)) + 2);
+sliderLeyend.innerHTML = selectedYear;
 
 slider.oninput = function() {
-
-  //selectedSeason = "Winter";
-  //console.log("> Prevous year: " + prevYear);
-  //console.log("> selected year: " + selectedYear );
-  //console.log("> selected season: " + selectedSeason);  
-
-  // if ( (parseInt(prevYear) == 1994) && ( parseInt(prevYear) > parseInt(selectedYear)) ) {
-  //  //console.log(" pprevious year was 1994!");
-  // }
 
   prevYear = selectedYear;
   
@@ -512,32 +497,24 @@ slider.oninput = function() {
   }
 
   output.innerHTML = selectedYear;
+  sliderLeyend.innerHTML = selectedYear;
   loadVisualization(selectedYear, selectedSeason);
 }
 
 
 $(document).ready(function() {
-  //console.log(" Document Ready!!!");
   loadVisualization(1980, "Winter");
 
   $("#summer").bind("click", function() { 
-    //console.log(">> summer selected!");
     selectedSeason = "Summer";
     seasson.innerHTML = selectedSeason;
     loadVisualization(selectedYear, selectedSeason);
-
-    //$("#winter").attr('disabled', true);
-    //$("#summer").attr('disabled', false);
-
   }); 
 
   $("#winter").bind("click", function() { 
-    //console.log(">> winter selected!"); 
     selectedSeason = "Winter";
     seasson.innerHTML = selectedSeason;
     loadVisualization(selectedYear, selectedSeason);
-    //$("#winter").attr('disabled', false);
-    //$("#summer").attr('disabled', true);
   }); 
 
 });
