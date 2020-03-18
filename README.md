@@ -6,7 +6,7 @@ This is a single page inyteractive Web application that provides a data visauliz
 
 The visaulization employes publicly available datasets on individual Olympic athletes, the Gross Domestic Product (GDP) of individual countries, and population totals for individual countries. The visualization aims to help those interested in sports, economics, or international relations explore a country’s Olympic success over time, and compare that success to population and GDP changes over that same period of time.
 
-## Data Visaulization 
+## Data Visualization 
 
 A D3 chart is used to render a  parallel coordinate plot to analyze multiple variables in one interactive single visualization. The parallel coordinate graph is a multi variable analysis chart which helps identify similarities and differences among different variables to find patterns and trends. 
 
