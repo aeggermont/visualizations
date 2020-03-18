@@ -10,6 +10,8 @@ The visaulization employes publicly available datasets on individual Olympic ath
 
 A D3 chart is used to render a  parallel coordinate plot to analyze multiple variables in one interactive single visualization. The parallel coordinate graph is a multi variable analysis chart which helps identify similarities and differences among different variables to find patterns and trends. 
 
+![Screenshot](PCChartScreenShot.PNG)
+
 ## High Level Components
 
 The Web page with the parallel coordinate plot is embedded into a Tableau URL view as part of a Tableau dashboard. In addition to the D3.js library, we employed other Web libraries to implement interactive features such as jQuery and a custom JavaScript controller. At a high level, the following are the visualization components:
