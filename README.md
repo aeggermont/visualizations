@@ -25,6 +25,32 @@ Live demo can be found at: http://184.73.47.34/
 
 The Web pages with the embedded D3 plot, data files, and Javascript controllers are stored and hosted on an Amazon EC2 instance using a standard Web server ( Apache Web Server).
 
+## Parallel Coordinates Plot Features
+
+Countries that participated in the olympic games for a specific year and season are assigned a line in the graph. The parallel coordinates graph plots the following variables:
+
+1. GDP of the country in a given year
+2. Medal count for all participants in that country
+3. Different counts of awarded gold, silver and bronze medals
+4. Number of participating athletes
+5. The recorded total population for that country in a given year
+6. The continent the country belongs to based on the color line.
+
+The lines in the graph connect values associated with these different types of variables, and each of these variables are quite different. Although the variables are quite different, we can connect them because we have defined a common base line scale for all these variables , so that each variable is scaled independently using original values.
+
+One of the key benefits of parallel coordinate plots is to provide interactivity to users to enable them perform data exploration and data on-demand discoveries. Key features for data exploration implemented in our parallel coordinates visualization include:
+
+1. Ranking countries by similarity using the brush filter feature on each axis variable
+2. Clustering items by similarity using the brush filter feature on each axis variable
+3. Interactive historical data visualization from 1980 to 2016 by Summer and Winter Games.
+A slider is included in the visualization to navigate across different years and game seasons.
+4. Searching of keywords to find country names and provide data on demand on both the graph and a data list
+5. Tooltips in drawn lines in the chart to get a short summary of variables for a given country such as GDP, population, and awarded medals by category.
+
+
+
+
+
 
 
 
